@@ -1,0 +1,17 @@
+# Python
+venv/
+*.pyc
+__pycache__/
+*.pyo
+
+# Node (Next.js / TailwindCSS)
+client/node_modules/
+client/.next/
+client/.env.local
+client/.env.*.local
+client/out/
+
+# Miscellaneous
+.DS_Store   # For macOS users
+*.log
+*.sqlite   # If you use SQLite
