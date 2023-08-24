@@ -7,7 +7,6 @@ def add_to_recent_searches(query: str):
     global RECENT_SEARCHES
     if query not in RECENT_SEARCHES:
         RECENT_SEARCHES.append(query)
-    # Limit the size to the last 10 searches
     RECENT_SEARCHES = RECENT_SEARCHES[-10:]
 
 async def search_google_books(query: str, startIndex: int = 0):
@@ -16,7 +15,7 @@ async def search_google_books(query: str, startIndex: int = 0):
     async with httpx.AsyncClient() as client:
         try:
             response = await client.get(BASE_URL, params=params)
-            response.raise_for_status()  # Raises an HTTPError if one occurred.
+            response.raise_for_status()
             data = response.json()
 
             if not data.get("items"):
