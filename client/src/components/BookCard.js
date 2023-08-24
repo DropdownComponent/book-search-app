@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 function BookCard({ book, isLastBook, onLastBookRef }) {
+  
       return (
         <div 
           className="w-64 m-4 bg-white shadow-md rounded overflow-hidden transform transition duration-500 ease-in-out hover:scale-105"
@@ -26,6 +28,15 @@ function BookCard({ book, isLastBook, onLastBookRef }) {
         </div>
       );
     }
-    
+    BookCard.propTypes = {
+      book: PropTypes.shape({
+        thumbnail: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+        description: PropTypes.string.isRequired
+      }).isRequired,
+      isLastBook: PropTypes.bool.isRequired,
+      onLastBookRef: PropTypes.func
+    };
     export default BookCard;
     

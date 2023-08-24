@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {useState} from 'react';
 function SearchBar({ onSearch }) {
       const [query, setQuery] = useState("");
@@ -27,6 +29,8 @@ function SearchBar({ onSearch }) {
         </div>
       );
     }
-    
+    SearchBar.propTypes = {
+      onSearch: PropTypes.func.isRequired
+  };
     export default SearchBar;
     
