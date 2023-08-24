@@ -50,17 +50,18 @@
 <p>
 4. <b>Setup the Server (Backend)</b>:
 <ul>
-  <li>Navigate to the server directory: <code>cd ../server</code> (Assuming you're in the client directory)</li>
+<li>Navigate to the api-helpers directory in the client folder: <code>cd api-helpers</code> (Assuming you're in the client directory)</li>
   <li>Install required dependencies for the server: <code>npm install</code></li>
 </ul>
 </p>
 
 <p>
 5. <b>Run the Development Server for the Server</b>:<br>
-While inside the <code>server</code> directory:<br>
+While inside the <code>api-helpers</code> directory:<br>
 <code>npm run dev</code><br>
 Ensure the server starts correctly. By default, it might run on <a href="http://localhost:8000">http://localhost:8000</a> or a port you've specified.
 </p>
+
 
 <p>
 6. <b>Run the Development Server for the Client</b>:<br>
