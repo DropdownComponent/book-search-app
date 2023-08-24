@@ -5,7 +5,8 @@ RECENT_SEARCHES = []
 
 def add_to_recent_searches(query: str):
     global RECENT_SEARCHES
-    RECENT_SEARCHES.append(query)
+    if query not in RECENT_SEARCHES:
+        RECENT_SEARCHES.append(query)
     # Limit the size to the last 10 searches
     RECENT_SEARCHES = RECENT_SEARCHES[-10:]
 

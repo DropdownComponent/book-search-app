@@ -9,14 +9,15 @@ export default function Home() {
     const response = await fetch(`http://127.0.0.1:8000/books/search/${query}`);
     const data = await response.json();
     setBooks(data);
+    fetchRecentSearches();
   };
 
   const fetchRecentSearches = async () => {
     const response = await fetch('http://127.0.0.1:8000/books/recent-searches');
     const data = await response.json();
     setRecentSearches(data.recent_searches);
+    console.log("Fetched recent searches:", data.recent_searches);
   };
-
   useEffect(() => {
     fetchRecentSearches();
   }, []);
