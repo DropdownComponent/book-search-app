@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import SearchBar from '../components/SearchBar';
 import BookCard from '../components/BookCard';
 import LoadingIndicator from '../components/LoadingIndicator';
+import { searchBooks } from '../utils/api'; 
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -27,28 +28,19 @@ export default function Home() {
     setBooks([]);
     setPage(0);
     setHasMore(true);
-    await searchBooks(query);
-  };
+    const newBooks = await searchBooks(query); // Fetch books using the utility function
+    setBooks(newBooks); // Set the fetched books to the state
+};
 
-  const searchBooks = async (query) => {
-    setLoading(true);
-    const response = await fetch(`http://127.0.0.1:8000/books/search/${query}?startIndex=${page * 10}`);
-    const data = await response.json();
-
-    if (Array.isArray(data)) {
-      setBooks(prevBooks => [...prevBooks, ...data]);
-      if (data.length < 10) setHasMore(false); 
-    } else {
-      setHasMore(false);
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    if (page > 0) {
-      searchBooks(queryRef.current);
-    }
-  }, [page]);
+useEffect(() => {
+  if (page > 0) {
+    const fetchMoreBooks = async () => {
+      const moreBooks = await searchBooks(queryRef.current);
+      setBooks(prevBooks => [...prevBooks, ...moreBooks]);
+    };
+    fetchMoreBooks();
+  }
+}, [page]);
 
   return (
     <div className="container mx-auto px-4 md:px-8 lg:px-12 py-4">
