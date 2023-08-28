@@ -1,7 +1,7 @@
 <h1 align="center">📚 Book Search App<br><p>https://main.d1k1bsy344lgng.amplifyapp.com/ </p></h1>
 
 <p align="center">
-  A dynamic book search application that allows users to effortlessly find and explore books. Crafted using Next.js and TailwindCSS, backed by a powerful server to provide seamless book data.
+  A dynamic book search application that allows users to effortlessly find and explore books. Crafted using Next.js and TailwindCSS, the application is designed with scalability in mind, ensuring it transcends the typical one-page app structure. The backend service resides in a separate branch called "server" and is deployed using Render, emphasizing a clear isolation between the client and server.
 </p>
 
 <p align="center">
@@ -42,7 +42,7 @@
 <p>
 3. <b>Setup the Client (Frontend)</b>:
 <ul>
-  <li>Navigate to the client directory: <code>cd client</code></li>
+  <li>In Client Branch, Navigate to the client directory: <code>cd client</code></li>
   <li>Install required dependencies for the client: <code>npm install</code></li>
 </ul>
 </p>
@@ -50,29 +50,20 @@
 <p>
 4. <b>Setup the Server (Backend)</b>:
 <ul>
-<li>Navigate to the api-helpers directory in the client folder: <code>cd api-helpers</code> (Assuming you're in the client directory)</li>
+  <li>Switch to the server branch: <code>git checkout server</code></li>
   <li>Install required dependencies for the server: <code>npm install</code></li>
 </ul>
 </p>
 
 <p>
-5. <b>Run the Development Server for the Server</b>:<br>
-While inside the <code>api-helpers</code> directory:<br>
-<code>npm run dev</code><br>
-Ensure the server starts correctly. By default, it might run on <a href="http://localhost:8000">http://localhost:8000</a> or a port you've specified.
-</p>
-
-
-<p>
-6. <b>Run the Development Server for the Client</b>:<br>
+5. <b>Run the Development Server for the Client</b>:<br>
 While inside the <code>client</code> directory:<br>
 <code>npm run dev</code><br>
 Open your browser and visit <a href="http://localhost:3000">http://localhost:3000</a>
 </p>
 
-
 <h2 align="center">📡 API Endpoints</h2>
 
 <p>Our backend serves the application with essential data through the endpoint:</p>
 
-<code>http://127.0.0.1:8000/books/search/:query</code>
+<code>https://book-search-app-api-server.onrender.com/books/search/:query</code>
