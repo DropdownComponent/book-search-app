@@ -28,19 +28,24 @@ export default function Home() {
     setBooks([]);
     setPage(0);
     setHasMore(true);
-    const newBooks = await searchBooks(query); // Fetch books using the utility function
-    setBooks(newBooks); // Set the fetched books to the state
-};
-
-useEffect(() => {
-  if (page > 0) {
-    const fetchMoreBooks = async () => {
-      const moreBooks = await searchBooks(queryRef.current);
-      setBooks(prevBooks => [...prevBooks, ...moreBooks]);
-    };
-    fetchMoreBooks();
-  }
-}, [page]);
+    setLoading(true); 
+    const newBooks = await searchBooks(query);
+    setBooks(newBooks);
+    setLoading(false); 
+  };
+  
+  useEffect(() => {
+    if (page > 0) {
+      const fetchMoreBooks = async () => {
+        setLoading(true); 
+        const moreBooks = await searchBooks(queryRef.current);
+        setBooks(prevBooks => [...prevBooks, ...moreBooks]);
+        setLoading(false);
+      };
+      fetchMoreBooks();
+    }
+  }, [page]);
+  
 
   return (
     <div className="container mx-auto px-4 md:px-8 lg:px-12 py-4">
