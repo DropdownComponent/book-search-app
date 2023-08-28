@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.api import books
+from .api import books
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 app.add_middleware(
